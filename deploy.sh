@@ -10,4 +10,4 @@ trap 'echo Error at about $LINENO' ERR
 cp -r ./.* ~/
 
 # Put configuration files in place
-cp -rivf .config ~/.config/
+cp -rivf i3/ ~/.config/i3
