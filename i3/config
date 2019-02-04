@@ -5,6 +5,12 @@
 #/_//____/   \___/\____/_/ /_/_/ /_/\__, /  
 #                                  /____/   
 
+## STARTUP
+exec_always        --no-startup-id dunst
+#exec_always --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+exec --no-startup-id atom;workspace $ws1;focus
+assign [class="atom"] $ws1
+
 ## MODKEYS ##
 
 set  $ALT              Mod1
@@ -151,9 +157,6 @@ bindsym $ALT+Shift+b exec $ALT_BROWSER
 for_window [class="^.*"] border pixel 0
 hide_edge_borders both
 smart_borders on
-
-exec_always        --no-startup-id dunst
-#exec_always --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
 
 bar {
 i3bar_command i3bar -t
