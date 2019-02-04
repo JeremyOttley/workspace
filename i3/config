@@ -1,0 +1,166 @@
+#    _ _____                     _____      
+#   (_)__  /   _________  ____  / __(_)___ _
+#  / / /_ <   / ___/ __ \/ __ \/ /_/ / __ `/
+# / /___/ /  / /__/ /_/ / / / / __/ / /_/ /
+#/_//____/   \___/\____/_/ /_/_/ /_/\__, /  
+#                                  /____/   
+
+## MODKEYS ##
+
+set  $ALT              Mod1
+set  $CAPS             Mod3
+set  $CONTROL_R        Mod3
+set  $SUPER            Mod4
+
+## ENVs ##
+
+set $TERMINAL xterm
+set $SCRIPT_DIR $HOME/bin
+set $BROWSER qutebrowser
+set $ALT_BROWSER firefox
+
+## FONTS ##
+## font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
+## font -Wuncon-Siji-Medium-R-Normal--10-100-75-75-C-80-ISO10646-1
+font pango:FontAwesome, xft:Hack 8
+
+## KEYBINDINGS ##
+
+# Use Mouse+$SUPER to drag floating windows to their wanted position
+floating_modifier $SUPER
+
+# kill focused window
+bindsym $ALT+Shift+Q kill
+
+# start a terminal
+bindsym  $ALT+Return    exec  $TERMINAL
+
+# start a program launcher
+bindsym $ALT+d exec j4-dmenu-desktop --dmenu="dmenu -i -fn 'fira-10' -l 10"
+bindsym $ALT+Shift+d exec bash ~/bin/rofi-apps
+
+# change focus
+bindsym  $ALT+h  focus  left
+bindsym  $ALT+j  focus  down
+bindsym  $ALT+k  focus  up
+bindsym  $ALT+l  focus  right
+
+# alternatively, you can use the cursor keys:
+bindsym  $ALT+Left   focus  left
+bindsym  $ALT+Down   focus  down
+bindsym  $ALT+Up     focus  up
+bindsym  $ALT+Right  focus  right
+
+# move focused window
+bindsym  $ALT+Shift+H  move  left
+bindsym  $ALT+Shift+J  move  down
+bindsym  $ALT+Shift+K  move  up
+bindsym  $ALT+Shift+L  move  right
+
+# alternatively, you can use the cursor keys:
+bindsym  $ALT+Shift+Left   move  left
+bindsym  $ALT+Shift+Down   move  down
+bindsym  $ALT+Shift+Up     move  up
+bindsym  $ALT+Shift+Right  move  right
+
+# split in horizontal orientation
+bindsym $SUPER+b split h;exec notify-send "Tiling Horizontally"
+
+# split in vertical orientation
+bindsym $SUPER+v split v;exec notify-send "Tiling Vertically"
+
+# Change container layout to stacked | tabbed | toggle split
+bindsym $SUPER+s layout stacking
+bindsym $SUPER+w layout tabbed
+bindsym $SUPER+e layout default
+
+# toggle tiling / floating
+bindsym $SUPER+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $SUPER+space focus mode_toggle
+
+# focus the parent container
+bindsym $SUPER+a focus parent
+
+# focus the child container
+bindsym $SUPER+y focus child
+
+#http://fontawesome.io/cheatsheet/
+
+# ws names
+set $ws1 "&#xf120;"
+set $ws2 "&#xf115;"
+set $ws3 "&#xf269;"
+set $ws4 "&#xf1bc;"
+set $ws5 "&#xf1e2;"
+
+
+# Go to workspace
+bindsym $ALT+1 workspace $ws1
+bindsym $ALT+2 workspace $ws2
+bindsym $ALT+3 workspace $ws3
+bindsym $ALT+4 workspace $ws4
+bindsym $ALT+5 workspace $ws5
+
+# Move focused container to workspace
+bindsym $ALT+Shift+1 move container to workspace $ws1
+bindsym $ALT+Shift+2 move container to workspace $ws2
+bindsym $ALT+Shift+3 move container to workspace $ws3
+bindsym $ALT+Shift+4 move container to workspace $ws4
+bindsym $ALT+Shift+5 move container to workspace $ws5
+
+#Popups during fullscreen mode
+popup_during_fullscreen smart
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+for_window [window_role="^Preferences$"] floating enable
+for_window [window_role="setup"] floating enable
+
+## SYSTEM ##
+
+# reload the configuration file
+bindsym $SUPER+Shift+C reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $SUPER+Shift+R restart
+
+# exit i3 (logs you out of your X session)
+bindsym $ALT+ctrl+Delete exit
+
+gaps inner 25
+gaps outer 0
+
+# MPD controls (requires mpc)
+bindsym  XF86AudioPlay  exec  mpc  toggle
+bindsym  XF86AudioNext  exec  mpc  next
+bindsym  XF86AudioPrev  exec  mpc  prev
+bindsym  XF86AudioStop  exec  mpc  stop
+
+## STARTUP OPTIONS ##
+
+client.placeholder      #ffff00 #ffff00 #dddddd #ffff00
+
+bindsym $ALT+b exec $BROWSER
+bindsym $ALT+Shift+b exec $ALT_BROWSER
+
+# border rules
+# no borders or i3-gaps won't work
+for_window [class="^.*"] border pixel 0
+hide_edge_borders both
+smart_borders on
+
+exec_always        --no-startup-id dunst
+#exec_always --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+
+bar {
+i3bar_command i3bar -t
+status_command i3status
+position top
+tray_padding 0
+workspace_buttons yes
+separator_symbol ":|:"
+strip_workspace_numbers yes
+}
