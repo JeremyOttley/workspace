@@ -171,4 +171,7 @@ tray_padding 0
 workspace_buttons yes
 separator_symbol " "
 strip_workspace_numbers yes
+mode hide
+hidden_state hide
+modifier Mod4
 }
