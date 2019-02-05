@@ -50,10 +50,10 @@ Xft.rgba: rgb
 *.color7:       #edddd4
 *.color15:      #ffffff
 
-*.font: xft:Iosevka:style=Regular:size=13
-*.boldFont: xft:Iosevka:style=Bold:size=13
-*.italicFont: xft:Iosevka:style=Italic:size=13
-*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=13
+*.font: xft:Iosevka:style=Regular:size=11
+*.boldFont: xft:Iosevka:style=Bold:size=11
+*.italicFont: xft:Iosevka:style=Italic:size=11
+*.boldItalicFont: xft:Iosevka:style=Bold Italic:size=11
 
 Xmessage*defaultButton:            okay
 Xmessage*form.message.Scroll:      WhenNeeded
