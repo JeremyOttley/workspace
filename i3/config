@@ -11,6 +11,7 @@ exec_always        --no-startup-id dunst
 for_window [class=".*"] fullscreen enable
 exec --no-startup-id atom;workspace $ws1;focus
 assign [class="atom"] $ws1
+popup_during_fullscreen smart
 
 ## MODKEYS ##
 
