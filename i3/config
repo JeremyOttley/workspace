@@ -30,7 +30,7 @@ set $ALT_BROWSER firefox
 ## FONTS ##
 ## font -misc-ubuntu-medium-r-normal-*-0-0-0-0-p-0-iso10646-1
 ## font -Wuncon-Siji-Medium-R-Normal--10-100-75-75-C-80-ISO10646-1
-font pango:FontAwesome, xft:Hack 8
+font pango:FontAwesome, xft:Comfortaa 8
 
 ## KEYBINDINGS ##
 
@@ -44,8 +44,9 @@ bindsym $ALT+Shift+Q kill
 bindsym  $ALT+Return    exec  $TERMINAL
 
 # start a program launcher
-bindsym $ALT+d exec j4-dmenu-desktop --dmenu="dmenu -i -fn 'fira-10' -l 10"
-bindsym $ALT+Shift+d exec bash rofi -show run
+#bindsym $ALT+d exec j4-dmenu-desktop --dmenu="dmenu -i -fn 'fira-10' -l 10"
+bindsym $ALT+d exec dmenu -i -fn 'Montserrat-10' -l 10
+bindsym $ALT+Shift+d exec rofi -show run
 
 # change focus
 bindsym  $ALT+h  focus  left
