@@ -8,6 +8,7 @@
 ## STARTUP
 exec_always        --no-startup-id dunst
 #exec_always --no-startup-id compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88
+for_window [class=".*"] fullscreen enable
 exec --no-startup-id atom;workspace $ws1;focus
 assign [class="atom"] $ws1
 
@@ -43,7 +44,7 @@ bindsym  $ALT+Return    exec  $TERMINAL
 
 # start a program launcher
 bindsym $ALT+d exec j4-dmenu-desktop --dmenu="dmenu -i -fn 'fira-10' -l 10"
-bindsym $ALT+Shift+d exec bash ~/bin/rofi-apps
+bindsym $ALT+Shift+d exec bash rofi -show run
 
 # change focus
 bindsym  $ALT+h  focus  left
@@ -95,26 +96,28 @@ bindsym $SUPER+y focus child
 #http://fontawesome.io/cheatsheet/
 
 # ws names
-set $ws1 "&#xf120;"
-set $ws2 "&#xf115;"
-set $ws3 "&#xf269;"
-set $ws4 "&#xf1bc;"
-set $ws5 "&#xf1e2;"
+set $ws1 "&#xf1e2;"
+
+#set $ws1 "&#xf120;"
+#set $ws2 "&#xf115;"
+#set $ws3 "&#xf269;"
+#set $ws4 "&#xf1bc;"
+#set $ws5 "&#xf1e2;"
 
 
 # Go to workspace
-bindsym $ALT+1 workspace $ws1
-bindsym $ALT+2 workspace $ws2
-bindsym $ALT+3 workspace $ws3
-bindsym $ALT+4 workspace $ws4
-bindsym $ALT+5 workspace $ws5
+#bindsym $ALT+1 workspace $ws1
+#bindsym $ALT+2 workspace $ws2
+#bindsym $ALT+3 workspace $ws3
+#bindsym $ALT+4 workspace $ws4
+#bindsym $ALT+5 workspace $ws5
 
 # Move focused container to workspace
-bindsym $ALT+Shift+1 move container to workspace $ws1
-bindsym $ALT+Shift+2 move container to workspace $ws2
-bindsym $ALT+Shift+3 move container to workspace $ws3
-bindsym $ALT+Shift+4 move container to workspace $ws4
-bindsym $ALT+Shift+5 move container to workspace $ws5
+#bindsym $ALT+Shift+1 move container to workspace $ws1
+#bindsym $ALT+Shift+2 move container to workspace $ws2
+#bindsym $ALT+Shift+3 move container to workspace $ws3
+#bindsym $ALT+Shift+4 move container to workspace $ws4
+#bindsym $ALT+Shift+5 move container to workspace $ws5
 
 #Popups during fullscreen mode
 popup_during_fullscreen smart
@@ -160,10 +163,10 @@ smart_borders on
 
 bar {
 i3bar_command i3bar -t
-status_command i3status
+status_command i3blocks ~/.config/i3blocks/config
 position top
 tray_padding 0
 workspace_buttons yes
-separator_symbol ":|:"
+separator_symbol " "
 strip_workspace_numbers yes
 }
