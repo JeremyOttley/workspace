@@ -11,3 +11,4 @@ cp -r ./.* ~/
 
 # Put configuration files in place
 cp -rivf i3/ ~/.config/i3
+cp -rivf gtk-3.0/ ~/.config/gtk-3.0
